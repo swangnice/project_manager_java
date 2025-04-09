@@ -1,0 +1,6 @@
+#ignore
+.settings/
+.DS_Store
+.project
+.classpath
+bin/
