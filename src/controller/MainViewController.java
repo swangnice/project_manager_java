@@ -2,17 +2,61 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.fxml.FXMLLoader;
 
 public class MainViewController {
-    // 注解 @FXML 绑定 FXML 文件中 id 为 label 的控件
+
     @FXML
     private Label label;
 
-    // 定义按钮点击时调用的方法，名称和 FXML 文件中的 onAction 方法名保持一致
+    @FXML
+    private StackPane contentPane;
+    
+    @FXML
+    private VBox sidebar;
+
+    
+
+    @FXML
+    public void initialize() {
+        // 获取 SidebarController 实例
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Sidebar.fxml"));
+            VBox sidebarContent = loader.load();
+            SidebarController sidebarController = loader.getController();
+            
+            sidebarController.welcome();
+
+            // 
+            sidebarController.setContentPane(contentPane);
+
+            // 
+            sidebar.getChildren().setAll(sidebarContent.getChildren());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }	
+    
     @FXML
     private void handleButtonAction() {
-        // 改变 label 的文本内容
-        label.setText("Button Clicked!");
+        label.setText("按钮已点击！");
     }
 
+    @FXML
+    private void handleHome() {
+        label.setText("欢迎来到主页！");
+    }
+
+    @FXML
+    private void handleSettings() {
+        label.setText("这是设置页面！");
+    }
+
+    @FXML
+    private void handleAbout() {
+        label.setText("关于我们内容展示！");
+    }
 }

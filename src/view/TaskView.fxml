@@ -8,17 +8,16 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/8.0.171"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.MainViewController"
+            fx:controller="controller.TaskViewController"
             stylesheets="@style.css">
     <left>
 		<VBox fx:id="sidebar"/>
 	</left>
 
-
     <center>
         <StackPane fx:id="contentPane" alignment="CENTER" style="-fx-background-color: #ecf0f1;">
 
-            <Label fx:id="label" text="Hello, MAIN view"/>
+            <Label fx:id="label" text="This is Task Page!"/>
         </StackPane>
     </center>
 
